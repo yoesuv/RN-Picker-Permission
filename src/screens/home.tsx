@@ -29,6 +29,12 @@ export default function Home() {
                     navigation.navigate('File');
                 }} />
             </View>
+            <SizedBox height={12} />
+            <View style={styles.button}>
+                <AppButton title="Location" onPress={() => {
+                    navigation.navigate('Location');
+                }} />
+            </View>
         </View>
     </SafeAreaView>
 }

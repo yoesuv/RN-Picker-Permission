@@ -7,6 +7,7 @@ import Home from './src/screens/home';
 import Gallery from './src/screens/gallery';
 import Camera from './src/screens/camera';
 import File from './src/screens/file';
+import Location from './src/screens/location';
 
 const Stack = createNativeStackNavigator<RootStackParamsList>();
 
@@ -30,6 +31,7 @@ export default function App() {
         <Stack.Screen name="Gallery" component={Gallery} options={{...baseOptions, title: "Take Gallery"}} />
         <Stack.Screen name="Camera" component={Camera} options={{...baseOptions, title: "Take Camera"}} />
         <Stack.Screen name="File" component={File} options={{...baseOptions, title: "Pick File"}} />
+        <Stack.Screen name="Location" component={Location} options={{...baseOptions, title: "Location"}} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,18 +1,28 @@
 import React, { useState } from 'react';
 import { StyleSheet, SafeAreaView, Text, View, Image } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
 import AppButton from '../components/button';
 import SizedBox from '../components/sized-box';
 
 export default function Camera() {
 
+    const [image, setImage] = useState<any | null>(null);
+
     const pickCamera = async () => {
-        
+        let result = await ImagePicker.launchCameraAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            allowsEditing: false,
+            quality: 0.8,
+          });
+          if (!result.cancelled) {
+            setImage(result.uri);
+        }
     }
 
     return <SafeAreaView style={styles.container}>
         <View style={styles.content}>
             <View style={styles.contentImage}>
-                <TakeImage />
+                { image != null ? <Image source={{ uri: image }} style={styles.contentImage} /> : <TakeImage /> }
             </View>
             <SizedBox height={24} />
             <View style={styles.button}>

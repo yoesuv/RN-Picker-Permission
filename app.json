@@ -32,7 +32,8 @@
     "plugins": [
       [
         "expo-image-picker", {
-          "photosPermission" : "The app accesses your photos to pick image from gallery"
+          "photosPermission" : "The app accesses your photos to pick image from gallery",
+          "cameraPermission" : "The app accesses your camera to take photo"
         }
       ]
     ]

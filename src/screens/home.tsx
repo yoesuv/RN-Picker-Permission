@@ -4,6 +4,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import AppButton from '../components/button';
 import { RootStackParamsList } from './root-stack-params';
+import SizedBox from '../components/sized-box';
 
 type homeScreenProp = StackNavigationProp<RootStackParamsList, 'Home'>;
 
@@ -14,6 +15,12 @@ export default function Home() {
             <View style={styles.button}>
                 <AppButton title="Gallery" onPress={() => {
                     navigation.navigate('Gallery');
+                }} />
+            </View>
+            <SizedBox height={12} />
+            <View style={styles.button}>
+                <AppButton title="Camera" onPress={() => {
+                    navigation.navigate('Camera');
                 }} />
             </View>
         </View>

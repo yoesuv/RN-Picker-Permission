@@ -24,8 +24,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        justifyContent: 'center',
-        alignItems: 'center',
+        paddingTop: 24,
     },
     content: {
         paddingHorizontal: 24,

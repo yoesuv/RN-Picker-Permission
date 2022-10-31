@@ -23,6 +23,12 @@ export default function Home() {
                     navigation.navigate('Camera');
                 }} />
             </View>
+            <SizedBox height={12} />
+            <View style={styles.button}>
+                <AppButton title="File" onPress={() => {
+                    navigation.navigate('File');
+                }} />
+            </View>
         </View>
     </SafeAreaView>
 }

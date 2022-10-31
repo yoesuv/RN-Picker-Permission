@@ -6,6 +6,7 @@ import { THEME_COLOR } from './src/data/colors';
 import Home from './src/screens/home';
 import Gallery from './src/screens/gallery';
 import Camera from './src/screens/camera';
+import File from './src/screens/file';
 
 const Stack = createNativeStackNavigator<RootStackParamsList>();
 
@@ -28,6 +29,7 @@ export default function App() {
         <Stack.Screen name="Home" component={Home} options={{...baseOptions}} />
         <Stack.Screen name="Gallery" component={Gallery} options={{...baseOptions, title: "Take Gallery"}} />
         <Stack.Screen name="Camera" component={Camera} options={{...baseOptions, title: "Take Camera"}} />
+        <Stack.Screen name="File" component={File} options={{...baseOptions, title: "Pick File"}} />
       </Stack.Navigator>
     </NavigationContainer>
   );

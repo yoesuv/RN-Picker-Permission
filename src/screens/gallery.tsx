@@ -25,6 +25,8 @@ export default function Gallery() {
                 { image != null ? <Image source={{ uri: image }} style={styles.contentImage} /> : <SelectImage /> }
             </View>
             <SizedBox height={24} />
+            { image != null ? <Text>{image}</Text> : null }
+            <SizedBox height={24} />
             <View style={styles.button}>
                 <AppButton title="Open Gallery" onPress={pickImage} />
             </View>

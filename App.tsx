@@ -25,7 +25,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={Home} options={{...baseOptions}} />
-        <Stack.Screen name="Gallery" component={Gallery} options={{...baseOptions, title: "Gallery"}} />
+        <Stack.Screen name="Gallery" component={Gallery} options={{...baseOptions, title: "Take Gallery"}} />
       </Stack.Navigator>
     </NavigationContainer>
   );

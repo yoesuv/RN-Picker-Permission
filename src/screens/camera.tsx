@@ -4,7 +4,7 @@ import * as ImagePicker from 'expo-image-picker';
 import AppButton from '../components/button';
 import SizedBox from '../components/sized-box';
 
-export default function Camera() {
+export default function CameraScreen() {
 
     const [image, setImage] = useState<any | null>(null);
 

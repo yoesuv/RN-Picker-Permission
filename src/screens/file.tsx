@@ -4,7 +4,7 @@ import * as DocumentPicker from 'expo-document-picker';
 import AppButton from '../components/button';
 import SizedBox from '../components/sized-box';
 
-export default function File() {
+export default function FileScreen() {
 
     const [file, setFile] = useState<any | null>(null);
     const [fileName, setFileName] = useState<any | null>(null);

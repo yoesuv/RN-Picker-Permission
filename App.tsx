@@ -3,10 +3,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator, NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import { RootStackParamsList } from './src/screens/root-stack-params';
 import { THEME_COLOR } from './src/data/colors';
-import Home from './src/screens/home';
-import Gallery from './src/screens/gallery';
-import Camera from './src/screens/camera';
-import File from './src/screens/file';
+import HomeScreen from './src/screens/home';
+import GalleryScreen from './src/screens/gallery';
+import CameraScreen from './src/screens/camera';
+import FileScreen from './src/screens/file';
 import LocationScreen from './src/screens/location';
 
 const Stack = createNativeStackNavigator<RootStackParamsList>();
@@ -27,10 +27,10 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} options={{...baseOptions}} />
-        <Stack.Screen name="Gallery" component={Gallery} options={{...baseOptions, title: "Take Gallery"}} />
-        <Stack.Screen name="Camera" component={Camera} options={{...baseOptions, title: "Take Camera"}} />
-        <Stack.Screen name="File" component={File} options={{...baseOptions, title: "Pick File"}} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{...baseOptions}} />
+        <Stack.Screen name="Gallery" component={GalleryScreen} options={{...baseOptions, title: "Take Gallery"}} />
+        <Stack.Screen name="Camera" component={CameraScreen} options={{...baseOptions, title: "Take Camera"}} />
+        <Stack.Screen name="File" component={FileScreen} options={{...baseOptions, title: "Pick File"}} />
         <Stack.Screen name="Location" component={LocationScreen} options={{...baseOptions, title: "Location"}} />
       </Stack.Navigator>
     </NavigationContainer>

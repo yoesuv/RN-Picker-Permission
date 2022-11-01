@@ -8,7 +8,7 @@ import SizedBox from '../components/sized-box';
 
 type homeScreenProp = StackNavigationProp<RootStackParamsList, 'Home'>;
 
-export default function Home() { 
+export default function HomeScreen() { 
     const navigation = useNavigation<homeScreenProp>();
     return <SafeAreaView style={styles.container}>
         <View style={styles.content}>
@@ -27,6 +27,12 @@ export default function Home() {
             <View style={styles.button}>
                 <AppButton title="File" onPress={() => {
                     navigation.navigate('File');
+                }} />
+            </View>
+            <SizedBox height={12} />
+            <View style={styles.button}>
+                <AppButton title="Location" onPress={() => {
+                    navigation.navigate('Location');
                 }} />
             </View>
         </View>

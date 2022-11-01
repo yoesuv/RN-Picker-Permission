@@ -3,4 +3,5 @@ export type RootStackParamsList = {
     Gallery: undefined,
     Camera: undefined,
     File: undefined,
+    Location: undefined,
 }

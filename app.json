@@ -24,18 +24,28 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.yoesuv.RNPermissionPicker"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
       [
-        "expo-image-picker", {
-          "photosPermission" : "The app accesses your photos to pick image from gallery",
-          "cameraPermission" : "The app accesses your camera to take photo"
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to pick image from gallery",
+          "cameraPermission": "The app accesses your camera to take photo"
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "df5ddfe7-2f19-41dc-85f9-197e504faac4"
+      }
+    }
   }
 }

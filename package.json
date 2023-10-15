@@ -22,7 +22,8 @@
     "react-native-web": "~0.19.6",
     "expo-image-picker": "~14.3.2",
     "expo-document-picker": "~11.5.4",
-    "expo-location": "~16.1.0"
+    "expo-location": "~16.1.0",
+    "expo-notifications": "~0.20.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

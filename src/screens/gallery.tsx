@@ -6,26 +6,29 @@ import SizedBox from '../components/sized-box';
 
 export default function GalleryScreen() {
 
-    const [image, setImage] = useState<any | null>(null);
+    const [image, setImage] = useState<ImagePicker.ImagePickerAsset | null>(null);
 
     const pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.Images,
             allowsEditing: false,
             quality: 0.8,
-          });
-        if (!result.cancelled) {
-            setImage(result.uri);
+        });
+        if (!result.canceled) {
+            if (result.assets.length > 0) {
+                const raw = result.assets[0];
+                setImage(raw);
+            }
         }
     }
 
     return <SafeAreaView style={styles.container}>
         <View style={styles.content}>
             <View style={styles.contentImage}>
-                { image != null ? <Image source={{ uri: image }} style={styles.contentImage} /> : <SelectImage /> }
+                { image != null ? <Image source={{ uri: image.uri}} style={styles.contentImage} /> : <SelectImage /> }
             </View>
             <SizedBox height={24} />
-            { image != null ? <Text>{image}</Text> : null }
+            { image != null ? <Text>{image.uri}</Text> : null }
             <SizedBox height={24} />
             <View style={styles.button}>
                 <AppButton title="Open Gallery" onPress={pickImage} />

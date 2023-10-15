@@ -35,6 +35,12 @@ export default function HomeScreen() {
                     navigation.navigate('Location');
                 }} />
             </View>
+            <SizedBox height={12} />
+            <View style={styles.button}>
+                <AppButton title="Notification" onPress={() => {
+                    navigation.navigate('Notification');
+                }} />
+            </View>
         </View>
     </SafeAreaView>
 }

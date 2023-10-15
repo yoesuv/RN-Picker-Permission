@@ -5,10 +5,21 @@ import { useNavigation } from '@react-navigation/native';
 import AppButton from '../components/button';
 import { RootStackParamsList } from './root-stack-params';
 import SizedBox from '../components/sized-box';
+import * as Notifications from 'expo-notifications';
 
 type homeScreenProp = StackNavigationProp<RootStackParamsList, 'Home'>;
 
 export default function HomeScreen() { 
+
+    // notification handler
+    Notifications.setNotificationHandler({
+        handleNotification: async () => ({
+          shouldShowAlert: true,
+          shouldPlaySound: false,
+          shouldSetBadge: false,
+        }),
+    });
+
     const navigation = useNavigation<homeScreenProp>();
     return <SafeAreaView style={styles.container}>
         <View style={styles.content}>

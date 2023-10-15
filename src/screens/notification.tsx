@@ -2,11 +2,27 @@ import React, { useState } from 'react';
 import { StyleSheet, SafeAreaView, Text, View } from 'react-native';
 import SizedBox from '../components/sized-box';
 import AppButton from '../components/button';
+import * as Notifications from 'expo-notifications';
 
 export default function NotificationScreen() {
 
+    // notification handler
+    Notifications.setNotificationHandler({
+        handleNotification: async () => ({
+          shouldShowAlert: true,
+          shouldPlaySound: false,
+          shouldSetBadge: false,
+        }),
+      });
+
     const localNotification = async () => {
-        console.log("NotificationScreen # local notification");
+        Notifications.scheduleNotificationAsync({
+            content: {
+                title:'Title Notification',
+                body:'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+            },
+            trigger: null,
+        });
     }
 
     return <SafeAreaView style={styles.container}>

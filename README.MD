@@ -10,6 +10,6 @@ Build from [Expo Framework](https://expo.dev/). Download apk file [here](https:/
 #### List Package ####
 - [Document Picker](https://docs.expo.dev/versions/latest/sdk/document-picker/)
 - [Image Picker](https://docs.expo.dev/versions/latest/sdk/imagepicker/)
-- [Location](https://docs.expo.dev/versions/v46.0.0/sdk/location/)
+- [Location](https://docs.expo.dev/versions/latest/sdk/location/)
 - [Notification](https://docs.expo.dev/versions/latest/sdk/notifications/)
 - [React Navigation](https://reactnavigation.org/)

@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator, NativeStackNavigationOptions } from '@react-navigation/native-stack';
+import * as Notifications from 'expo-notifications';
 import { RootStackParamsList } from './src/screens/root-stack-params';
 import { THEME_COLOR } from './src/data/colors';
 import HomeScreen from './src/screens/home';
@@ -25,6 +26,16 @@ const baseOptions: NativeStackNavigationOptions = {
 };
 
 export default function App() {
+
+  // notification handler
+  Notifications.setNotificationHandler({
+    handleNotification: async () => ({
+      shouldShowAlert: true,
+      shouldPlaySound: false,
+      shouldSetBadge: false,
+    }),
+  });
+
   return (
     <NavigationContainer>
       <Stack.Navigator>

@@ -6,7 +6,7 @@ import SizedBox from '../components/sized-box';
 
 export default function CameraScreen() {
 
-    const [image, setImage] = useState<any | null>(null);
+    const [image, setImage] = useState<ImagePicker.ImagePickerAsset | null>(null);
 
     const pickCamera = async () => {
         let result = await ImagePicker.launchCameraAsync({
@@ -14,15 +14,17 @@ export default function CameraScreen() {
             allowsEditing: false,
             quality: 0.8,
           });
-          if (!result.cancelled) {
-            setImage(result.uri);
+          if (!result.canceled) {
+            if (result.assets.length > 0) {
+                setImage(result.assets[0]);
+            }
         }
     }
 
     return <SafeAreaView style={styles.container}>
         <View style={styles.content}>
             <View style={styles.contentImage}>
-                { image != null ? <Image source={{ uri: image }} style={styles.contentImage} /> : <TakeImage /> }
+                { image != null ? <Image source={{ uri: image.uri }} style={styles.contentImage} /> : <TakeImage /> }
             </View>
             <SizedBox height={24} />
             <View style={styles.button}>

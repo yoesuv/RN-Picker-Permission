@@ -4,4 +4,5 @@ export type RootStackParamsList = {
     Camera: undefined,
     File: undefined,
     Location: undefined,
+    Notification: undefined,
 }

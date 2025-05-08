@@ -1,6 +1,12 @@
 import { SafeAreaView, Text, View, StyleSheet, Alert } from "react-native";
-import { useAudioRecorder, AudioModule, RecordingPresets } from "expo-audio";
-import { useEffect, useState } from "react";
+import {
+  useAudioRecorder,
+  AudioModule,
+  RecordingPresets,
+  PermissionStatus,
+} from "expo-audio";
+import { useState } from "react";
+
 import AppButton from "../components/button";
 
 export default function RecordingScreen() {
@@ -8,7 +14,18 @@ export default function RecordingScreen() {
   const [isRecording, setIsRecording] = useState(false);
   const [recordUri, setRecordUri] = useState("");
 
+  async function requestPermissions() {
+    let g = PermissionStatus.GRANTED;
+    const { status } = await AudioModule.requestRecordingPermissionsAsync();
+    if (status === g) {
+      record();
+    } else {
+      Alert.alert("Permission to access microphone was denied");
+    }
+  }
+
   const record = async () => {
+    setRecordUri("");
     await audioRecorder.prepareToRecordAsync();
     audioRecorder.record();
     setIsRecording(true);
@@ -20,28 +37,27 @@ export default function RecordingScreen() {
     setIsRecording(false);
   };
 
-  /* useEffect(() => {
-    (async () => {
-      const status = await AudioModule.requestRecordingPermissionsAsync();
-      if (!status.granted) {
-        Alert.alert("Permission to access microphone was denied");
-      }
-    })();
-  }, []); */
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
         <View style={styles.viewButton}>
           <AppButton
             title={isRecording ? "Stop Recording" : "Start Recording"}
-            onPress={isRecording ? stopRecording : record}
+            onPress={() => {
+              if (isRecording) {
+                stopRecording();
+              } else {
+                requestPermissions();
+              }
+            }}
           />
         </View>
-        <View style={styles.contentUri}>
-          <Text>Recording file: </Text>
-          <Text style={styles.textUri}>{recordUri}</Text>
-        </View>
+        {recordUri.length > 0 && (
+          <View style={styles.contentUri}>
+            <Text>Recording file: </Text>
+            <Text style={styles.textUri}>{recordUri}</Text>
+          </View>
+        )}
       </View>
     </SafeAreaView>
   );

@@ -41,11 +41,13 @@
         }
       ],
       [
-        "expo-location",
-        {
+      "expo-location",{
           "locationAlwaysAndWhenInUsePermission": "The app accesses your current location"
         }
-      ]
+      ],
+      ["expo-audio", {
+        "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone."
+      }]
     ],
     "extra": {
       "eas": {

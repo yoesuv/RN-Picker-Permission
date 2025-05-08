@@ -13,6 +13,7 @@ import CameraScreen from "./src/screens/camera";
 import FileScreen from "./src/screens/file";
 import LocationScreen from "./src/screens/location";
 import NotificationScreen from "./src/screens/notification";
+import RecordingScreen from "./src/screens/recording";
 
 const Stack = createNativeStackNavigator<RootStackParamsList>();
 
@@ -35,6 +36,8 @@ export default function App() {
       shouldShowAlert: true,
       shouldPlaySound: false,
       shouldSetBadge: false,
+      shouldShowBanner: false,
+      shouldShowList: false,
     }),
   });
 
@@ -70,6 +73,11 @@ export default function App() {
           name="Notification"
           component={NotificationScreen}
           options={{ ...baseOptions, title: "Notification" }}
+        />
+        <Stack.Screen
+          name="Recording"
+          component={RecordingScreen}
+          options={{ ...baseOptions, title: "Recording" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -4,6 +4,7 @@ import {
   AudioModule,
   RecordingPresets,
   PermissionStatus,
+  useAudioPlayer,
 } from "expo-audio";
 import { useState } from "react";
 
@@ -37,6 +38,11 @@ export default function RecordingScreen() {
     setIsRecording(false);
   };
 
+  async function playAudio() {
+    const player = useAudioPlayer(recordUri);
+    player.play();
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -58,6 +64,13 @@ export default function RecordingScreen() {
             <Text style={styles.textUri}>{recordUri}</Text>
           </View>
         )}
+        {recordUri.length > 0 && (
+          <View style={styles.contentPlay}>
+            <View style={styles.viewButtonPlay}>
+              <AppButton title="Play Record" onPress={playAudio} />
+            </View>
+          </View>
+        )}
       </View>
     </SafeAreaView>
   );
@@ -68,6 +81,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   content: {
+    width: "100%",
     paddingTop: 24,
     paddingHorizontal: 24,
   },
@@ -80,5 +94,14 @@ const styles = StyleSheet.create({
   },
   textUri: {
     fontSize: 12,
+  },
+  contentPlay: {
+    marginTop: 10,
+    width: "100%",
+    alignItems: "center",
+  },
+  viewButtonPlay: {
+    width: "50%",
+    height: 50,
   },
 });

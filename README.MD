@@ -9,6 +9,7 @@ Build from [Expo Framework](https://expo.dev/). Download apk file [here](https:/
 | ![](https://i.imgur.com/SrbudX9.png) | - | - | - |
 
 #### List Package ####
+- [Audio](https://docs.expo.dev/versions/latest/sdk/audio/)
 - [Document Picker](https://docs.expo.dev/versions/latest/sdk/document-picker/)
 - [Image Picker](https://docs.expo.dev/versions/latest/sdk/imagepicker/)
 - [Location](https://docs.expo.dev/versions/latest/sdk/location/)

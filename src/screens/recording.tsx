@@ -4,7 +4,7 @@ import {
   AudioModule,
   RecordingPresets,
   PermissionStatus,
-  useAudioPlayer,
+  createAudioPlayer,
 } from "expo-audio";
 import { useState } from "react";
 
@@ -39,8 +39,14 @@ export default function RecordingScreen() {
   };
 
   async function playAudio() {
-    const player = useAudioPlayer(recordUri);
+    const player = createAudioPlayer(recordUri);
     player.play();
+    player.loop = false;
+    player.addListener("playbackStatusUpdate", (status) => {
+      if (status.didJustFinish) {
+        player.release();
+      }
+    });
   }
 
   return (

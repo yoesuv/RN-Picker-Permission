@@ -2,10 +2,11 @@
   "expo": {
     "name": "RN-Permission-Picker",
     "slug": "RN-Permission-Picker",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -25,9 +26,6 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#673AB7"
       },
-      "permissions": [
-        "android.permission.RECORD_AUDIO"
-      ],
       "package": "com.yoesuv.RNPermissionPicker"
     },
     "web": {
@@ -43,11 +41,13 @@
         }
       ],
       [
-        "expo-location",
-        {
+      "expo-location",{
           "locationAlwaysAndWhenInUsePermission": "The app accesses your current location"
         }
-      ]
+      ],
+      ["expo-audio", {
+        "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone."
+      }]
     ],
     "extra": {
       "eas": {
